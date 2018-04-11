@@ -1,0 +1,37 @@
+import java.util.Scanner;
+
+public class Tencent
+{
+	public static void main(String[] args)
+	{
+		/*
+		Scanner scanner = new Scanner(System.in);
+		String number = scanner.nextLine();
+		String info = scanner.nextLine();
+		int num = Integer.parseInt(number);
+		
+		int[] status = new int[num];
+		Scanner infoScanner = new Scanner(info);
+		for(int i = 0; i < num; i++)
+		{
+			int temp = infoScanner.nextInt();
+			status[i] = temp;
+			// System.out.println(status[i]);
+		}
+		
+		process(info);;
+		*/
+		int a = 128;
+		byte b;
+		b = (byte)a;
+		System.out.println(b);
+		System.out.println(Integer.MAX_VALUE);
+		System.out.println(1 << 32);
+	}
+
+	private static void process(String info)
+	{
+		// TODO Auto-generated method stub
+		
+	}
+}

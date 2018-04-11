@@ -1,0 +1,92 @@
+import java.io.File;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+
+import org.json.JSONObject;
+
+public class BaiduUniversalOCR
+{
+	private static final Long OCR_MAX_IMAGE_SIZE = 4194304L; // 4 * 1024 * 1024
+
+	private static final Integer OCR_MIN_IMAGE_SIDE_LENGTH = 15;
+	private static final Integer OCR_MAX_IMAGE_SIDE_LENGTH = 4096;
+
+	private static final String APPID = "10480494";
+	private static final String APPKEY = "ND4baRV6m8gO08a2APlIRCHh";
+	private static final String SECRETKEY = "rn1PecfUm7RUCih4gtCrmLcj7QVBKZdT";
+	private static String img = "/home/elvis/Documents/medical_ocr/DATA/ALL_DATA/IMG_20171204_160833R.jpg";
+
+	private static String[] pathSet = new String[]
+	{ "/home/elvis/Documents/medical_ocr/DATA/ALL_DATA/laboratory_sheet/test/",
+			"/home/elvis/Documents/medical_ocr/DATA/ALL_DATA/medical_history/test/",
+			"/home/elvis/Documents/medical_ocr/DATA/ALL_DATA/pathological_report/test/",
+			"/home/elvis/Documents/medical_ocr/DATA/ALL_DATA/surgery_record/test/" };
+
+	public static ArrayList<String> getFileArrayList(String path)
+	{
+		ArrayList<String> fileArrayList = new ArrayList<>();
+		File file = new File(path);
+		File[] fileArray = file.listFiles();
+		for (int i = 0; i < fileArray.length; i++)
+		{
+			if (fileArray[i].isFile())
+			{
+				String fileName = fileArray[i].getAbsolutePath();
+				if (isPicture(fileName))
+				{
+					fileArrayList.add(fileName);
+				}
+
+			}
+		}
+		return fileArrayList;
+	}
+
+	public static boolean isPicture(String name)
+	{
+		if (name.toLowerCase().endsWith("jpg") || name.toLowerCase().endsWith("png")
+				|| name.toLowerCase().endsWith("bmp") || name.toLowerCase().endsWith("jepg"))
+		{
+			return true;
+		}
+		return false;
+	}
+
+	private static String path = "/home/elvis/Documents/medical_ocr/DATA/ALL_DATA/laboratory_sheet/test/";
+	
+	
+
+	public static void main(String[] args)
+	{
+		ArrayList<String> returnSet = getFileArrayList(path);
+
+		for (int i = 0; i < returnSet.size(); i++)
+		{
+			String fileName = returnSet.get(i);
+			System.out.println(fileName);
+		}
+
+		System.out.println(returnSet.size());
+		
+		
+
+		// AipOcr client = new AipOcr(APPID, APPKEY, SECRETKEY);
+		// client.setConnectionTimeoutInMillis(2000);
+		// client.setSocketTimeoutInMillis(60000);
+		// img = "/home/elvis/TEMP/down.png";
+
+		/*
+		 * JSONObject returnValue = client.receipt(img, new HashMap<String,
+		 * String>()); System.out.println(returnValue.toString(2));
+		 * 
+		 * Iterator<String> iterator = returnValue.keys(); try { while
+		 * (iterator.hasNext()) { String key = iterator.next();
+		 * System.out.println("key : " + key); String value =
+		 * returnValue.getString(key); System.out.println("value : " + value); }
+		 * } catch (Exception e) { System.out.println("Error in read the key");
+		 * }
+		 */
+
+	}
+}

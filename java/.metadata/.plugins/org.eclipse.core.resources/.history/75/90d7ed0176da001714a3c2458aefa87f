@@ -1,0 +1,40 @@
+import java.util.HashMap;
+import java.util.Iterator;
+
+import org.json.JSONObject;
+
+public class BaiduUniversalOCR
+{
+	private static final String APPID = "10480494";
+	private static final String APPKEY = "ND4baRV6m8gO08a2APlIRCHh";
+	private static final String SECRETKEY = "rn1PecfUm7RUCih4gtCrmLcj7QVBKZdT";
+	private static String img = "/home/elvis/Documents/medical_ocr/检验单取范围/内分泌/out.png";
+
+	public static void main(String[] args)
+	{
+		AipOcr client = new AipOcr(APPID, APPKEY, SECRETKEY);
+		client.setConnectionTimeoutInMillis(2000);
+		client.setSocketTimeoutInMillis(60000);
+
+		img = "/home/elvis/TEMP/up.png";
+
+		JSONObject returnValue = client.receipt(img, new HashMap<String, String>());
+		System.out.println(returnValue.toString(2));
+
+		Iterator<String> iterator = returnValue.keys();
+		try
+		{
+			while (iterator.hasNext())
+			{
+				String key = iterator.next();
+				System.out.println("key : " + key);
+				String value = returnValue.getString(key);
+				System.out.println("value : " + value);
+			}
+		} catch (Exception e)
+		{
+			
+		}
+
+	}
+}

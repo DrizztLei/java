@@ -1,0 +1,12 @@
+package scagnostics;
+
+public class Exp extends Thread
+{
+
+	public static void main(String[] args)
+	{
+		System.out.println("Exp");
+		Exp e = new Exp();
+		e.start();
+	}
+}

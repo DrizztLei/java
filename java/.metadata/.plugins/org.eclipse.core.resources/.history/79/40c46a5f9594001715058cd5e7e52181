@@ -1,0 +1,52 @@
+import java.util.Scanner;
+
+public class brac
+{
+	private static const int mod = 1000000007;
+
+	public static void main(String[] args)
+	{
+		Scanner scanner = new Scanner(System.in);
+		int n = scanner.nextInt();
+
+		int[][] matrix = new int[n][n];
+
+		long count = 0;
+
+		for (int a = 1; a <= n; a++)
+		{
+			for (int b = 1; b <= n; b++)
+			{
+				/*
+				 * if (a == 1) { count += n; matrix[a - 1][b - 1] = n; }
+				 * 
+				 * int prepareC = factoryA(a, n); int prepareD = factoryB(b, n);
+				 */
+				for (int c = 1; c <= n; c++)
+				{
+					for (int d = 1; d <= n; d++)
+					{
+						if (Math.pow(a, b) == Math.pow(c, d))
+						{
+							count++;
+						}
+					}
+				}
+			}
+		}
+
+		System.out.println(count % mod);
+	}
+
+	private static int factoryB(int b, int n)
+	{
+
+		return 0;
+	}
+
+	private static int factoryA(int a, int n)
+	{
+
+		return 0;
+	}
+}

@@ -1,0 +1,26 @@
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+
+
+public class Trans
+{
+	public static void main(String[] args) throws IOException
+	{
+		File file = new File("/home/elvis/test.txt");
+		// 31 for name, 4 for id card, 4 for stu id,
+		int readInt = 31;
+		
+		InputStream in = null;
+		byte[] bytes = null;
+		in = new FileInputStream(file);
+		// readInt = in.available();
+		bytes = new byte[readInt];
+		
+		in.read(bytes);
+		in.close();
+		String output = new String(bytes);
+		System.out.println(output);
+	}
+}

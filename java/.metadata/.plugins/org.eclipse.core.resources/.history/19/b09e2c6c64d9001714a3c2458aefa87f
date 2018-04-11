@@ -1,0 +1,16 @@
+import org.json.JSONObject;
+
+public class BaiduUniversalOCR
+{
+	private static final String APPID = "10480494";
+	private static final String APPKEY = "ND4baRV6m8gO08a2APlIRCHh";
+	private static final String SECRETKEY = "rn1PecfUm7RUCih4gtCrmLcj7QVBKZdT";
+	private static final String img = "/home/elvis/Documents/medical_ocr/检验单取范围/内分泌/QQ图片20171204205914.png";
+
+	public static void main(String[] args)
+	{
+		AipOcr OCRAPI = new AipOcr(APPID, APPKEY, SECRETKEY);
+		JSONObject retureValue = OCRAPI.accurateGeneral(img, null);
+		
+	}
+}

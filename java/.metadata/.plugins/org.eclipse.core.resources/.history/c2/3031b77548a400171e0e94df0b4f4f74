@@ -1,0 +1,13 @@
+
+public class Algorithms
+{
+	public static void main(String[] args)
+	{
+		int i = 1;
+		int b = i++ + i++ + i++;
+		i = 1;
+		int c = ++i + ++i + ++i;
+		System.out.println(b);
+		System.out.println(c);
+	}
+}

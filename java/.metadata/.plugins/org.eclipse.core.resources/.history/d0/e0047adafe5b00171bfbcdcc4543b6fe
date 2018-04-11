@@ -1,0 +1,46 @@
+import java.util.Scanner;
+import java.util.Stack;
+
+public class LISP
+{
+	public static Stack<String> opStack = new Stack<String>();
+	public static Stack<String> dataStack = new Stack<String>();
+	
+	public static void token(String info)
+	{
+		
+	}
+
+	public static void quote()
+	{
+
+	}
+
+	public static void reverse()
+	{
+
+	}
+
+	public static void search()
+	{
+
+	}
+
+	public static void combine()
+	{
+
+	}
+	
+	public static String run(String input)
+	{
+		
+		return null;
+	}
+
+	public static void main(String[] args)
+	{
+		Scanner scanner = new Scanner(System.in);
+		String info = scanner.nextLine();
+		String result = run(info);
+	}
+}
